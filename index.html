@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RecentCoders - Elite Developer Community. Join our thriving tech ecosystem for coding excellence and professional growth.">
+    <meta name="keywords" content="coding community, developers, programming, tech discussion, coding help, developer network">
+    <meta name="author" content="RecentCoders">
+    <meta name="theme-color" content="#000000">
+    <meta property="og:title" content="RecentCoders - Elite Developer Community">
+    <meta property="og:description" content="Join the most innovative developer community. Share, learn, and grow with fellow coders.">
+    <meta property="og:image" content="https://i.ibb.co.com/GJxVCtw/IMG-0100.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>RecentCoders - Elite Developer Community</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #1a1a1a;
+            --accent: #00f2fe;
+            --text: #ffffff;
+            --overlay: rgba(0, 0, 0, 0.85);
+            --metal-gradient: linear-gradient(135deg, #0a0a0a, #1a1a1a, #2a2a2a);
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glowPulse {
+            0% { text-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent); }
+            50% { text-shadow: 0 0 20px var(--accent), 0 0 30px var(--accent); }
+            100% { text-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent); }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--primary);
+            overflow-x: hidden;
+        }
+
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://i.ibb.co.com/GJxVCtw/IMG-0100.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.15;
+            z-index: -1;
+            transition: transform 0.5s ease-out;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        header {
+            background: var(--metal-gradient);
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            animation: glowPulse 3s infinite;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-link {
+            color: var(--text);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            padding: 0.7rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-link:hover {
+            color: var(--accent);
+            transform: translateY(-3px) scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .section {
+            background: var(--overlay);
+            border-radius: 1rem;
+            padding: 3rem;
+            margin: 3rem 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 242, 254, 0.1);
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .guidelines {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .guidelines {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.2);
+        }
+
+        .card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .card h3 i {
+            font-size: 1.8rem;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .faq-question:hover {
+            color: var(--accent);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+            opacity: 0;
+            font-size: 1.1rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            opacity: 1;
+            padding-top: 1.5rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            background: var(--metal-gradient);
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        .contact-info {
+            margin: 2rem 0;
+            font-size: 1.1rem;
+        }
+
+        .warning {
+            color: #ff4444;
+            font-weight: 600;
+            padding: 0.8rem;
+            border-radius: 0.5rem;
+            background: rgba(255, 68, 68, 0.1);
+            margin: 1.5rem 0;
+            display: inline-block;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 2rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .card h3 {
+                font-size: 1.3rem;
+            }
+
+            li, .faq-question, .faq-answer {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 2rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .card {
+                padding: 1rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .card h3 {
+                font-size: 1.2rem;
+            }
+
+            li, .faq-question, .faq-answer, .contact-info {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-overlay"></div>
+    
+    <header>
+        <div class="container">
+            <div class="logo">𝗥𝗲𝗰𝗲𝗻𝘁𝗖𝗼𝗱𝗲𝗿 &lt;/&gt;</div>
+            <h1>Welcome to RecentCoders!</h1>
+            <p>A thriving community for developers to share, learn, and grow. 💻</p>
+            <div class="social-links">
+                <a href="https://t.me/RecentCoders" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Join us on Telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+                <a href="https://github.com/RecentCoders" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2>Community Guidelines</h2>
+            <div class="guidelines">
+                <div class="card">
+                    <h3><i class="fas fa-check-circle" style="color: #22c55e;"></i> Do's</h3>
+                    <ul>
+                        <li>Be respectful and professional in all interactions</li>
+                        <li>Keep discussions focused on coding and tech</li>
+                        <li>Use a proper profile picture and have an @username</li>
+                        <li>Share knowledge and help others grow</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-times-circle" style="color: #ff4444;"></i> Don'ts</h3>
+                    <ul>
+                        <li>No spamming, advertising, or referral links</li>
+                        <li>No unsolicited DMs for help—ask in the group</li>
+                        <li>No scams, illegal activities, or insider/pump schemes</li>
+                        <li>No buying/selling crypto or OTC transactions</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do I join the community? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Simply visit our Telegram group @RecentCoders and click "Join". Make sure to read and agree to our community guidelines before participating.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How do I report violations? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Contact @RecentCoder on Telegram with proof of the violation. We take all reports seriously and will investigate promptly.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Where can I get help with coding? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Post your questions in our Telegram group. Remember to include relevant code snippets and what you've tried so far. Our community is always ready to help!
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can I contribute to the community? <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Share your knowledge, answer questions, participate in discussions, and help maintain a positive environment. You can also contribute to our open-source projects on GitHub.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Contact & Support</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-headset"></i> Support: Contact @RecentCoder on Telegram</p>
+                <p><i class="fas fa-store"></i> Marketplace: Visit ScriptersShop</p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a9dbcccaccc7ddcac6cdccdbdae9dacadbc0d9ddccdbda87daddc6dbcc">[email&#160;protected]</a></p>
+                <p class="warning"><i class="fas fa-exclamation-triangle"></i> No unsolicited DMs please!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Let's build a safe, engaging space for developers. 💻</p>
+            <div class="social-links">
+                <a href="https://t.me/RecentCoders" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Join us on Telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+                <a href="https://github.com/RecentCoders" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow us on GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <p>&copy; 2025 RecentCoders. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const wasActive = item.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(faqItem => {
+                    faqItem.classList.remove('active');
+                    const icon = faqItem.querySelector('i');
+                    icon.className = 'fas fa-chevron-down';
+                });
+                
+                // If clicked item wasn't active, open it
+                if (!wasActive) {
+                    item.classList.add('active');
+                    const icon = question.querySelector('i');
+                    icon.className = 'fas fa-chevron-up';
+                }
+            });
+        });
+
+        // Parallax effect for background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const background = document.querySelector('.background-overlay');
+            background.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+
+        // Animate sections on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
+
